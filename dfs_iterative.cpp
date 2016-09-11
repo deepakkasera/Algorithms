@@ -12,11 +12,12 @@ void dfs_iterative(int s){
       visited[s]=true;
       while( !st.empty() ){
         int x=st.top();
+        cout<<x<<" ";
         st.pop();
         for(int j=0;j<v[x].size();j++){
-            if(!visited[j]){
+            if(!visited[x][j]){
                 st.push(v[x][j]);
-                visited[j]=true;
+                visited[v[x][j]=true;
             }
         }
       }
@@ -40,6 +41,7 @@ int main(int argc, char const *argv[])
     	}
     }
     initalize();
+    cout<<"Depth first search is "
     for(int i=1;i<=nodes;i++){
         if(!visited[i]){
             dfs_iterative(i);
