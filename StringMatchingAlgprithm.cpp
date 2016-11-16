@@ -11,7 +11,7 @@ int main(int argc, char const *argv[])
          int j=0;
          while(j<m && s[i+j]==p[j]) j++;
          	if(j == m)  
-         		flag=true,cout<<"pattern found\n";
+         		flag=true,cout<<"pattern found at index "<<i;
 	}
 	if(!flag) cout<<"Pattern not found\n";
 	return 0;

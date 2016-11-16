@@ -1,34 +1,41 @@
 #include <bits/stdc++.h>
-#define d 10
 using namespace std;
-void patternMatching(string text,string pattern,int q){
-	int n = text.length();
-	int m = pattern.length();
-	int p=0; //hash value for the pattern
-	int temp=0,t=0; //hash value for the text
-	int h=1;
-	bool flag=false;
-	for(int i=0;i<m;i++)  h=(h*d)%m;
-	for(int i=0;i<m;i++){
-			p = (d*p + (int)pattern[i])%q;
-			temp = (d*t + (int)text[i]);
-			t = (temp)%q;
-	}
-	for(int s=0;s <= n-m;s++){
-		if(p==t){
-			int j=0;
-			while(j<m && pattern[j]==text[s+j])  j++;
-			if(j==m)    flag=true,cout<<"pattern found at position "<<s+1<<"\n";
-			if(s < n-m)   temp = ((d*(t-text[s]*h)) + ((int)text[s+m])), t=temp%q;	
-		}
-	}
-	if(!flag)   cout<<"Pattern not found";
+int prime =11;
+int reCalculateHash(string text,int start,int end,int textHash,int m){
+     long newhash = 0;
+     newhash=textHash-text[start];
+     newhash/=prime;
+     newhash += text[start+m]*pow(prime,m-1);
+     return newhash; 
+}
+int createHash(string text,int n){
+	long hash=0;
+    for(int i=0;i<n;i++)
+      hash+=text[i]*pow(prime,i);
+   return hash;
+}
+void patternSearch(string text,string pattern){
+    int n=text.length();
+    int m=pattern.length();
+    int patternHash = createHash(pattern,m);
+    int textHash = createHash(text,n);
+    bool flag;
+    for(int i=0;i <= n-m ;i++){
+    	int j=0;
+    	if(textHash == patternHash ){
+    		while(j<m && text[i+j] == pattern[j])   j++;
+    		if(j==m) flag=true,cout<<"Pattern found at index "<<i<<"\n";
+    	}
+    	if(i <= n-m){
+    		textHash = reCalculateHash(text,i,i+m,textHash,m);
+    	}
+    }
+    if(!flag)  cout<<"pattern not found\n";
 }
 int main(int argc, char const *argv[])
 {
 	string s,p;
 	cin>>s>>p;
-	int q=17;
-	patternMatching(s,p,q); 
+	patternSearch(s,p,prime);
 	return 0;
 }
