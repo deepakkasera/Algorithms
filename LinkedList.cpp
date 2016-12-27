@@ -14,8 +14,8 @@ void insertAtN(int x,int n){
    temp1->next=NULL;
    node* temp2=head;
    if(n==1){
-   	temp1->next=head;
    	head=temp1;
+    temp1->next=NULL;
    	return;
    }
    for(i,n-2)  temp2=temp2->next;

@@ -40,7 +40,10 @@ int main(int argc, char const *argv[])
 		cout<<"Enter the number";
 		cin>>a[i];
 	}
+	clock_t startTime = 0;
 	mergesort(a,n);
+	clock_t endTime = clock();
+	cout << endTime - startTime <<endl;
 	cout<<"Sorted array is ";
 	for(int i=0;i<n;i++ )  cout<<a[i]<<" ";
 	return 0;
