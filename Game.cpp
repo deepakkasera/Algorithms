@@ -16,6 +16,6 @@ int main(int argc, char const *argv[])
 	{
 		cin >> a[i] ;
 	}
-	cout << game(a,0,n-1) ;
+	cout << game(a,0,n-1) ;	
  	return 0;
 }
