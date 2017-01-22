@@ -29,6 +29,7 @@ int main(int argc, char const *argv[])
 	std::vector< std::vector<int> > v(r,std::vector<int>(c));
 	for(int i=0;i<r;i++){
 		for(int j=0;j<c;j++){
+			//Only -1 and 0 are allowed (0 for valid and -1 for invalid)
 			cin >> v[i][j];
 		}
 	}
