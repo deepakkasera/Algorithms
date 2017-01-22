@@ -38,4 +38,4 @@ int main(int argc, char const *argv[])
     reverseStack(s);
     print(s);
 	return 0;
-}
+}	
