@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//Time Complexity is O(min(c,n)),c is the character set and n is the length of the string,space O(c) 
 bool isUnque(string str){
 	int n = str.length();
 	if( n > 128 )  return false;

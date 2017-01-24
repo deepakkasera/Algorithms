@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+//O(n*n)
 int countInversions(std::vector<int> &v,int n){
 	int count =0;
 	for(int i=0;i<n;i++){
@@ -8,6 +9,9 @@ int countInversions(std::vector<int> &v,int n){
 		}
 	}
 	return count;
+}
+int countInversionsOptimized(std::vector<int> &v,int n){
+
 }
 int main(int argc, char const *argv[])
 {

@@ -6,6 +6,7 @@ int  pascalTriangle(int rows,int cols){
 	else if (cols == 0 ) return 1;
 	else return pascalTriangle(rows-1,cols) + pascalTriangle(rows-1,cols-1);
 }
+
 int main(int argc, char const *argv[])
 {
 	int rows,cols;
