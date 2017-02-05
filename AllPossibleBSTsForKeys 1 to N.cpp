@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 5
 using namespace std;
 struct node
 {
@@ -11,15 +11,15 @@ node* newNode(int data){
 	n->left = n->right = NULL;
 	return n;
 }
-std::vector<node*> ConstruceBSTs(int start,int end){
+std::vector<node*> ConstructBSTs(int start,int end){
 	std::vector<node*> list;
 	if(start > end){
 		list.push_back(NULL);
 		return list;
 	}
 	for(int i=start;i<=end;i++){
-		std::vector<node*> leftSubTree = ConstruceBSTs(start,i-1);
-		std::vector<node*> rightSubTree = ConstruceBSTs(i+1,end);
+		std::vector<node*> leftSubTree = ConstructBSTs(start,i-1);
+		std::vector<node*> rightSubTree = ConstructBSTs(i+1,end);
 		for(int j=0;j<leftSubTree.size();j++){
 			node* left = leftSubTree[j];
 			for(int k=0;k<rightSubTree.size();k++){
@@ -41,7 +41,7 @@ void preOrder(node* root){
 }
 int main(int argc, char const *argv[])
 {
-	std::vector<node*> v = ConstruceBSTs(1,5);
+	std::vector<node*> v = ConstructBSTs(1,5);
 	cout << "Number of BSTs is " << v.size() << endl;
 	for(int i=0;i<v.size();i++){
 		preOrder(v[i]);
