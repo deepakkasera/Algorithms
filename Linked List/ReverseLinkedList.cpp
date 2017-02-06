@@ -46,6 +46,7 @@ public:
 		}
 		cout << "NULL" << endl;
 	}
+	//Iterative method to reverse a linked list
 	void reverse(){
 		Node* prev = NULL;
 		Node* current = head;
@@ -58,6 +59,22 @@ public:
 		}
 		head = prev;
 	}
+	//Recursive method to reverse a linked list
+	void reverseRecursive(Node* p){
+		if(p->next == NULL){
+			head = p;
+			return;
+		}
+		reverseRecursive(p->next);
+		Node* q = p->next;
+		q->next = p;
+		p->next = NULL;
+	}
+	void printRecursiveReverse(Node* head){
+		if(head == NULL) return ;
+		printRecursiveReverse(head->next);
+		cout << head->data << "-->";
+	}
 };
 int main(int argc, char const *argv[])
 {
@@ -68,9 +85,13 @@ int main(int argc, char const *argv[])
 	l.insertAtFront(2);
 	l.insertAtFront(1);
 	l.print();
+	l.printRecursiveReverse(l.head);
+	cout << "NULL\n";
 	l.insertAtPosition(6,5);
+	l.print();
 	l.reverse();
 	l.print();
+	l.reverseRecursive(l.head);
 	l.print();
 	return 0;
 }
