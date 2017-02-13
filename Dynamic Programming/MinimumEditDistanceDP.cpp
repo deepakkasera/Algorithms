@@ -27,7 +27,7 @@ int minEditDistance(string str1,string str2,int m,int n){
 		}
 		cout << endl;
 	}
-	return dp[n][m];
+	return dp[n][main];
 }
 int main(int argc, char const *argv[])
 {
