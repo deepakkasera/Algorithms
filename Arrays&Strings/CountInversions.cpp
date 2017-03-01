@@ -50,6 +50,6 @@ int main(int argc, char const *argv[])
 	for(int i=0;i<n;i++) cin >> a[i];
     //cout << countInversions(a,n) << endl;
 	cout << mergeSort(a,n) << endl ;
-	//nfor(int i=0;i<n;i++) cout << a[i] << " ";
+	//for(int i=0;i<n;i++) cout << a[i] << " ";
 	return 0;
 }
