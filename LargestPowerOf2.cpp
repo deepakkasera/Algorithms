@@ -7,7 +7,7 @@ long long largestPowerOf2(long long n){
 	n |= (n>>4);
 	n |= (n>>8);
 
-	return (n+1)/2;
+	return (n+1) >> 2;
 }
 int main(int argc, char const *argv[])
 {

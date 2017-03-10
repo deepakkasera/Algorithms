@@ -39,9 +39,9 @@ int main(int argc, char const *argv[])
 		cout << "Enter the element " ;
 		cin >> v[i] ;
 	}
-    allPermutations(v,0,n);
-    cout << "Enter a String " ;
-    cin >> str ;
+  allPermutations(v,0,n);
+  cout << "Enter a String " ;
+  cin >> str ;
 	cout << "Permutations of String " << endl ;
 	allPermutationsOfString(str,0);
 	return 0;
