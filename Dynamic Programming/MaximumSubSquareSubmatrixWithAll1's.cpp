@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 int min(int a,int b,int c){
-        int ans;
-		if(a<b) ans=a;
-		else ans=b;
-		if(c < ans) ans=c;
-		return ans; 
+	return min(min(a,b),c);
 }
 int maximumSquareSubMatrix(std::vector<std::vector<int> > &v,int rows,int cols){
 	std::vector<std::vector<int> > dp(rows,std::vector<int>(cols));
