@@ -11,7 +11,7 @@ void insertAtPosition(int d,int p){
 	n->data = d;
 	n->next = NULL;
 	if(p==0){
-		n->next = head;
+		//n->next = head;
 		head = n;
 		return ;
 	}
@@ -64,7 +64,7 @@ int main(int argc, char const *argv[])
 	}
 	//cout << s1.top() << " ";
 	//head = reverseList(head);
-	//print();
+	print();
 	bool flag=false;
 	temp=head;
 	while(!s1.empty()){
@@ -77,7 +77,42 @@ int main(int argc, char const *argv[])
 			temp=temp->next;
 		}
 	}
+	Node* temp2 = head;
+	cout << temp2->data << endl ;
 	if(!flag) cout << "Linked list is palindrome\n";
 	else cout << "Linked list is not palindrome\n";
 	return 0;
 }
+// #include <bits/stdc++.h>
+// using namespace std;
+// struct Node
+// {
+// 	int data;
+// 	Node* next;
+// };
+// Node* head = NULL;
+// void insertAtPosition(int data,int p){
+// 	Node* n = new Node();
+// 	n->data = data;
+// 	n->next = NULL;
+// 	if(p == 0){
+// 		head = n ;
+// 		return ;
+// 	}
+// 	int jumps=0;
+// 	Node* temp = head;
+// 	while(jumps < p-1){
+
+// 	}
+// }
+// int main(int argc, char const *argv[])
+// {
+// 	int n;
+// 	cout << "Enter the number of elements in linked list\n";
+// 	cin >> n;
+// 	for(int i=0;i<n;i++){
+// 		cin >> x;
+// 		insertAtPosition()
+// 	}
+// 	return 0;
+// }
