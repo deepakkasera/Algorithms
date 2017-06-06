@@ -47,7 +47,47 @@ int query(int *tree,int index,int start,int end,int qs,int qe) // qs and qe is t
 	int rightAns = query(tree,2*index+1,mid+1,end,qs,qe);
 	return min(leftAns,rightAns);
 }
+// i is the index where we want to update the value
+// Node update 
+void updateNode(int* tree,int index,int s,int e,int i,int value)
+{
+	// No overlap
+	if(i < s || i > e)
+		return ;
+	// reached at leaf node
+	if(s == e){
+		tree[index] = value;
+		return;
+	}
+	//Partial overlap
+	int mid = (s+e)/2;
+	updateNode(tree,2*index,s,mid,i,value);
+	updateNode(tree,2*index+1,mid+1,e,i,value);
+	tree[index] = min(tree[2*index],tree[2*index+1]);
+	return;
+}
 
+//Range Update
+// increment all values in a range [rs,re] by a value inc
+//O(N) --> time complexity is O(N)
+void updateRange(int* tree,int index,int s,int e,int rs,int re,int inc)
+{
+	//No overlap
+	if(rs > e || re < s){
+		return ;
+	}
+
+	//Reached leaf node
+	if(s == e){
+		tree[index] += inc;
+		return ;	
+	}
+	int mid = (s+e)/2;
+	updateRange(tree,2*index,s,mid,rs,re,inc);
+	updateRange(tree,2*index+1,mid+1,e,rs,re,inc);
+	tree[index] = min(tree[2*index],tree[2*index+1]);
+	return;
+}
 int main(int argc, char const *argv[])
 {
 	int n;
@@ -69,6 +109,7 @@ int main(int argc, char const *argv[])
 	int q,qs,qe;
 	cout << "enter number of queries\n";
 	cin >> q;
+	updateRange(tree,1,0,n-1,1,2,4);
 	while(q--){
 		cin >> qs >> qe;
 		cout << "Minimum element in range " << qs << " and " << qe << " is " ;
