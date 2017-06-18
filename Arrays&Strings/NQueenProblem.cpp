@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool isSafe(int board[][10],int i,int j,int n){
+int ans=0;
+bool isSafe(int board[][12],int i,int j,int n){
 	//check for the column
 	for(int x=0;x<i;x++){
 		if(board[x][j]==1)
@@ -31,21 +32,23 @@ bool isSafe(int board[][10],int i,int j,int n){
 	return true;
 
 }
-bool solveNQueen(int board[][10],int i,int n){
+bool solveNQueen(int board[][12],int i,int n){
 	//Base Case
 	if(i==n){
 		//Print the board
-		for(int i=0;i<n;i++){
-			for(int j=0;j<n;j++){
-				if(board[i][j]){
-					cout << "Q ";
-				}
-				else
-					cout << ". ";
-			}
-			cout << endl;
-		}
-		return true;
+		// for(int i=0;i<n;i++){
+		// 	for(int j=0;j<n;j++){
+		// 		if(board[i][j]){
+		// 			cout << "Q ";
+		// 		}
+		// 		else
+		// 			cout << ". ";
+		// 	}
+		// 	cout << endl;
+		// }
+		// cout << endl << endl;
+		ans++;
+		return false;
 	}
 	//Recursive Case
 	for(int j=0;j<n;j++){
@@ -64,9 +67,9 @@ bool solveNQueen(int board[][10],int i,int n){
 int main(int argc, char const *argv[])
 {
 	int n;
-	cout << "Enter the value of n\n";
 	cin >> n;
-	int board[10][10] = {0};
+	int board[12][12] = {0};
 	solveNQueen(board,0,n);
+	cout << ans << endl;
 	return 0;
 }

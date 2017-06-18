@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
-//O(n*n)
+int inversions=0;
 int a[1000000];
+// Naive approach O(N^2)
 int countInversions(int a[],int n){
 	int count =0;
 	for(int i=0;i<n;i++){
@@ -11,7 +12,6 @@ int countInversions(int a[],int n){
 	}
 	return count;
 }
-int inversions=0;
 int merge(int a[],int *left,int leftCount,int *right,int rightCount){
 	int i=0,j=0,k=0;
 	int count=0;
@@ -27,12 +27,12 @@ int merge(int a[],int *left,int leftCount,int *right,int rightCount){
 	return count;
 }
 int mergeSort(int a[],int n){
-	if(n < 2) return 0;
+	if(n <= 1) return 0;
 	int mid=n/2;
 	int *left,*right;
 	left = new int[mid];
 	right = new int[n-mid];
-	for(int i=0;i<mid;i++) left[i]=a[i];
+	for(int i=0;i<mid;i++) left[i] = a[i];
 	for(int i=mid;i<n;i++) right[i-mid] = a[i];
 
 	mergeSort(left,mid);
@@ -48,8 +48,7 @@ int main(int argc, char const *argv[])
 	cin >> n;
 	//int a[n];
 	for(int i=0;i<n;i++) cin >> a[i];
-    //cout << countInversions(a,n) << endl;
+    cout << countInversions(a,n) << endl;
 	cout << mergeSort(a,n) << endl ;
-	//for(int i=0;i<n;i++) cout << a[i] << " ";
 	return 0;
 }
