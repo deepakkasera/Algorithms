@@ -67,10 +67,10 @@ std::vector<int> factorizationlog(int n){
 	std::vector<int> res;
 	std::map<int,int> m;
 	std::map<int,int>::iterator it;
-		while(n != 1){
-			res.push_back(minPrime[n]);
-			m[minPrime[n]]++;
-			n /= minPrime[n];
+	while(n != 1){
+		res.push_back(minPrime[n]);
+		m[minPrime[n]]++;
+		n /= minPrime[n];
 	}
 	cout << "map is \n";
 	for(it=m.begin();it!=m.end();it++){
@@ -79,8 +79,6 @@ std::vector<int> factorizationlog(int n){
 	cout << endl;
 	return res;
 }
-
-
 int main(int argc, char const *argv[])
 {
 	int n;
