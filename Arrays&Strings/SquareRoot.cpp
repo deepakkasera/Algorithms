@@ -1,11 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-int squareRoot(int n){
+// O(logn)
+float squareRoot(int n,int p){
 	int left=0,right=n/2,middle;
+	float value;
 	while(left <= right){
 		middle = (left+right)/2;
+		value = middle;
 		if(middle*middle == n){
-			return middle;
+			// value = middle;
+			break;
 		}
 		else if(middle*middle > n){
 			right = middle - 1;
@@ -14,12 +18,21 @@ int squareRoot(int n){
 			left = middle + 1;
 		}
 	}
-	return middle;
+	cout << value << endl;	
+	float inc = 0.1;
+	for(int i = 1; i <= p; i++){
+		while(value * value <= n){
+			value += inc;
+		}
+		value -= inc;
+		inc /= 10;
+	}
+	return value;
 }
 int main(int argc, char const *argv[])
 {
-	int n;
-	cin >> n;
-	cout << squareRoot(n) << endl;
+	int n,p;
+	cin >> n >> p;
+	cout << squareRoot(n,p) << endl;
 	return 0;
 }
