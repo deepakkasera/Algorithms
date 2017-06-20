@@ -16,7 +16,7 @@ int merge(int a[],int *left,int leftCount,int *right,int rightCount){
 	int i=0,j=0,k=0;
 	int count=0;
 	while(i < leftCount && j<rightCount){
-		if(left[i] < right[j]) a[k++] = left[i++];
+		if(left[i] <= right[j]) a[k++] = left[i++];
 		else{
 			a[k++] = right[j++];
 			count += (leftCount-i);
