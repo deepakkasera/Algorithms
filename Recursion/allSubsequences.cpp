@@ -10,13 +10,14 @@ void allSubseq(char input[],char output[],int i,int j,set<string> &st){
         // cout << output << endl;
         return;
     }
-    
+
     //include ith character
     output[j] = input[i];
     allSubseq(input,output,i+1,j+1,st);
     
     //exclude ith character
     allSubseq(input,output,i+1,j,st);
+    
 }
 int main(){
     int n;

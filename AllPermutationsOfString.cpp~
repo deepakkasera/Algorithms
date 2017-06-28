@@ -8,9 +8,8 @@ void allPermutations(std::vector<int> &a,int k,int n){
    	 cout << endl ;
    }
    else {
-cnt++;
    	for(int i=k;i<n;i++){
-            
+                cnt++;
    		swap(a[i],a[k]);
    		allPermutations(a,k+1,n);
    		swap(a[i],a[k]);

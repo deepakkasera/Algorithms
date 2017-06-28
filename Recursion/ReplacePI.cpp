@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-set<string> st;
-set<string>::iterator it;
-void replacePI(string s,int i,set<string> &st){
+// set<string> st;
+// set<string>::iterator it;
+std::vector<string> st;
+std::vector<string>::iterator it;
+void replacePI(string s,int i,std::vector<string> &st){
     if(s[i] == '\0'){
-        st.insert(s);
+        st.push_back(s);
         return;
     }
     //Rec case
@@ -26,16 +28,15 @@ int main(int argc, char const *argv[])
 {
     int n;
     cin>>n;
+    cin.ignore();
     while(n--){
         string s;
-        cin.ignore();
         getline(cin,s);
         replacePI(s,0,st);
-        for(it = st.begin(); it != st.end(); it++){
-            cout << *it << endl;
-        }
-        st.clear();
     // cout << s << endl;
+    }
+    for(it = st.begin(); it != st.end(); it++){
+            cout << *it << endl;
     }
     return 0;
 }
