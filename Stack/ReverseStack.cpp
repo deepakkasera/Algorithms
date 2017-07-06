@@ -24,7 +24,7 @@ void reverseStack(stack<int> &s){
 }
 void print(stack<int> s){
 	while(!s.empty()){ 
-	    cout << s.top() << " ";
+	    cout << s.top() << "\n";
 		s.pop();
 	}
 	cout << endl;
@@ -33,8 +33,8 @@ int main(int argc, char const *argv[])
 {
 	ios_base::sync_with_stdio(false);
 	stack<int> s;
-    for(int i=1;i<=5;i++) s.push(i);
-    print(s);
+    for(int i=1;i<=n;i++) s.push(i);
+    // print(s);
     reverseStack(s);
     print(s);
 	return 0;
