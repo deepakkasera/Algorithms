@@ -31,7 +31,8 @@ public:
 
 int main(int argc, char const *argv[])
 {	
-	Graph<string> g; 
+	Graph<string> g;
+	 
 	g.addEdge("Amritsar","Delhi");
 	g.addEdge("Amritsar","Jaipur");
 	g.addEdge("Jaipur","Delhi");
@@ -39,7 +40,6 @@ int main(int argc, char const *argv[])
 	g.addEdge("Agra","Delhi");
 	g.addEdge("Bhopal","Delhi");
 	g.addEdge("Mumbai","Bhopal");
-
 
 	g.printAdjList();
 	return 0;
