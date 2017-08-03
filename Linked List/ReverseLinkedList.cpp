@@ -1,19 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
+
+
 class Node{
+
 public:
 	int data;
 	Node* next;
+
 public:
 	Node(int d) : data(d),next(NULL) {}
+
 };
+
+
 class LinkedList{
+
 public:
 	Node* head;
+
 public:
+	
 	LinkedList(){
 		head = NULL;
 	}
+	
 	void insertAtFront(int d){
 		if(!head){
 			head = new Node(d);
@@ -23,6 +34,7 @@ public:
 		n->next = head;
 		head = n;
 	}
+	
 	void insertAtPosition(int d,int p){
 		if(p == 0){
 			insertAtFront(d);
@@ -38,6 +50,7 @@ public:
 		n->next = temp->next;
 		temp->next = n;
 	}
+	
 	void print(){
 		Node* temp = head;
 		while(temp){
@@ -46,6 +59,7 @@ public:
 		}
 		cout << "NULL" << endl;
 	}
+	
 	//Iterative method to reverse a linked list
 	void reverse(){
 		Node* prev = NULL;
@@ -59,6 +73,7 @@ public:
 		}
 		head = prev;
 	}
+	
 	//Recursive method to reverse a linked list
 	void reverseRecursive(Node* p){
 		if(p->next == NULL){
@@ -70,11 +85,13 @@ public:
 		q->next = p;
 		p->next = NULL;
 	}
+	
 	void printRecursiveReverse(Node* head){
 		if(head == NULL) return ;
 		printRecursiveReverse(head->next);
 		cout << head->data << "-->";
 	}
+
 };
 int main(int argc, char const *argv[])
 {

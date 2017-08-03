@@ -1,11 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 struct Node
 {
 	int data;
 	Node* next;
 };
+
 Node* head;
+
 void insertAtposition(int d,int p){
 	Node* n = new Node();
 	n->data = d;
@@ -24,6 +27,7 @@ void insertAtposition(int d,int p){
 	n->next = temp->next;
 	temp->next = n;
 }
+
 void print(){
 	Node* temp = head;
 	while(temp){
@@ -32,6 +36,7 @@ void print(){
 	}
 	cout << "NULL\n";
 }
+
 Node* getMiddle(Node* head){
 	if(head==NULL || head->next==NULL){
 		return head;
@@ -44,9 +49,11 @@ Node* getMiddle(Node* head){
 	}
 	return slow;
 }
+
 Node* mergeSorted(Node* a,Node* b){
 	if(a == NULL) return b;
 	if(b == NULL) return a;
+	
 	Node* newHead;
 	if(a->data < b->data){
 		newHead = a;
@@ -58,10 +65,12 @@ Node* mergeSorted(Node* a,Node* b){
 	}
 	return newHead;
 }
+
 Node* mergeSort(Node* head){
 	if(head==NULL || head->next==NULL){
 		return head;
 	}  
+	
 	Node* middle = getMiddle(head);
 	Node* a = head;
 	Node* b = middle->next;
