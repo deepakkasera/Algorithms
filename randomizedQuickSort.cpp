@@ -8,7 +8,7 @@ void shuffle(int *a,int s,int e){
 	for(int i = e; i > 0; i--){
 
 		//Create one random index
-		j = rand()%(i+1);
+		j = rand()%(i);
 		swap(a[i],a[j]);
 	}
 	return ;
