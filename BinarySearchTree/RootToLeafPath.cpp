@@ -60,6 +60,23 @@ void levelOrderPrint (node* root) {
 	}
 }
 
+void path(node* root,int a[],int len){
+	if(root==NULL){
+		return;
+	}
+	a[len] = root->data;
+	len++;
+	if(!root->left && !root->right){
+		for(int i = 0; i < len; i++){
+			cout << a[i] << " ";
+		}
+		cout<<endl;
+	}
+
+	path(root->left,a,len);
+	path(root->right,a,len);
+}
+
 istream& operator>>(istream& is,node* &root) {
 	levelOrderInput(root);
 	return is;
@@ -70,31 +87,14 @@ ostream& operator<< (ostream& os,node* &root) {
 	return os;
 }
 
-int height(node* root){
-	if (!root){
-		return 0;
-	}
-	return max(height(root->left),height(root->right)) + 1;
-}
-
-//Time complexity --> O(n^2)
-int diameter (node* root) {
-	if (root == NULL)
-	{
-		return 0;
-	}
-
-	int a = height(root->left) + height(root->right);
-	int b = diameter(root->left);
-	int c = diameter(root->right);
-	return max(a,max(b,c));
-}
-
 int main(int argc, char const *argv[])
 {
 	node* root = NULL;
 	cin >> root;
-	cout << root;
-	cout<<"diameter of tree is " <<diameter(root)<<endl;
+	// cout << root;
+	// std::vector<int> v;
+	int v[10000];
+	int len = 0;
+	path(root,v,len);
 	return 0;
 }

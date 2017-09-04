@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 using namespace std;
 
 class node {
@@ -37,27 +38,31 @@ void levelOrderInput (node* &root) {
 	}
 }
 
-void levelOrderPrint (node* root) {
-	queue<node*> q;
-	q.push(root);
-	q.push(NULL);
-	while (!q.empty()) {
-		node* temp = q.front();
-		q.pop();
-		if (temp) {
-			cout << temp->data << " ";
-			if (temp->left)
-				q.push(temp->left);
-			if (temp->right)
-				q.push(temp->right);
+void SpiralLevelOrderPrint (node* root) {
+	stack<node*> s1;
+	stack<node*> s2;
+	s1.push(root);
+	while(!s1.empty() || !s2.empty()){
+		while(!s1.empty()){
+			node* n = s1.top();
+			s1.pop();
+			cout << n->data <<" ";
+			if(n->right)
+				s2.push(n->right);
+			if(n->left)
+				s2.push(n->left);
 		}
-		if (!temp) {
-			cout << endl;
-			if (!q.empty()){
-				q.push(NULL);
-			}
+		while(!s2.empty()){
+			node* n = s2.top();
+			s2.pop();
+			cout << n->data << " ";
+			if(n->left)
+				s1.push(n->left);
+			if(n->right)
+				s1.push(n->right);
 		}
 	}
+	return;
 }
 
 istream& operator>>(istream& is,node* &root) {
@@ -66,35 +71,14 @@ istream& operator>>(istream& is,node* &root) {
 }
 
 ostream& operator<< (ostream& os,node* &root) {
-	levelOrderPrint(root);
+	SpiralLevelOrderPrint(root);
 	return os;
-}
-
-int height(node* root){
-	if (!root){
-		return 0;
-	}
-	return max(height(root->left),height(root->right)) + 1;
-}
-
-//Time complexity --> O(n^2)
-int diameter (node* root) {
-	if (root == NULL)
-	{
-		return 0;
-	}
-
-	int a = height(root->left) + height(root->right);
-	int b = diameter(root->left);
-	int c = diameter(root->right);
-	return max(a,max(b,c));
 }
 
 int main(int argc, char const *argv[])
 {
 	node* root = NULL;
-	cin >> root;
-	cout << root;
-	cout<<"diameter of tree is " <<diameter(root)<<endl;
+	cin>>root;
+	cout<<root;
 	return 0;
 }
