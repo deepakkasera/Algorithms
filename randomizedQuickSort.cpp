@@ -6,7 +6,6 @@ void shuffle(int *a,int s,int e){
 	int j;
 
 	for(int i = e; i > 0; i--){
-
 		//Create one random index
 		j = rand()%(i);
 		swap(a[i],a[j]);

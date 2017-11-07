@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 int inversions=0;
 int a[10000000];
@@ -12,8 +12,8 @@ int merge(int a[],int left[],int leftCount,int *right,int rightCount){
             count += (leftCount-i);
         }
     }
-    while(i<leftCount) a[k++]=left[i++];
-    while(j<rightCount) a[k++]=right[j++];
+    while(i < leftCount) a[k++]=left[i++];
+    while(j < rightCount) a[k++]=right[j++];
     return count;
 }
 int mergeSort(int a[],int n){

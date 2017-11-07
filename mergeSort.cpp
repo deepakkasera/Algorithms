@@ -5,8 +5,8 @@ void merge(int a[],int left[],int leftcount,int right[],int rightcount){
 	// i points to left subarray
 	// j points to right subarray
     // k points to merged subarray
-	while( i<leftcount && j<rightcount ){
-		if( left[i] < right[j] ) a[k++]=left[i++];
+	while(i<leftcount && j<rightcount ){
+		if ( left[i] < right[j] ) a[k++]=left[i++];
 		else a[k++]=right[j++];
     }
     while(i < leftcount)  a[k++] = left[i++];
