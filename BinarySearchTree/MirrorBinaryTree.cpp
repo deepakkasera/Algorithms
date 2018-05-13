@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+#include <iostream>
+#include <cstring>
 using namespace std;
 
 class node{
@@ -83,6 +85,8 @@ void mirror(node* &root) {
 }
 int main(int argc, char const *argv[])
 {
+        ios_base::sync_with_stdio(false); 
+        cin.tie(NULL);     
 	node* root = NULL;
 	cin >> root;
 	cout << root;
